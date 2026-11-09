@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device" pages="2">
+  <diagram id="jerarquia" name="Jerarquía de clases — Animal abstracta">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1340" pageHeight="695" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="animal" value="&lt;p style=&quot;margin:0;text-align:center;background:#E8EEF8;padding:4px 0&quot;&gt;&lt;span style=&quot;font-size:10px;color:#1F3864&quot;&gt;&quot;abstract&quot;&lt;/span&gt;&lt;br/&gt;&lt;b style=&quot;font-size:14px;color:#1F3864;font-style:italic;&quot;&gt;Animal&lt;/b&gt;&lt;/p&gt;&lt;hr size='1'/&gt;ESPECIE = &quot;sin especie&quot;&lt;br/&gt;EN_PELIGRO = False&lt;br/&gt;codigo&lt;br/&gt;nombre&lt;br/&gt;collar&lt;br/&gt;&lt;hr size='1'/&gt;codigo_valido(codigo)  {static}&lt;br/&gt;esta_en_peligro()&lt;br/&gt;nombre_especie()&lt;br/&gt;tiene_collar()&lt;br/&gt;&lt;i&gt;describir()&lt;/i&gt;&lt;br/&gt;__str__()&lt;br/&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=2;fillColor=#FFFFFF;strokeColor=#1F3864;strokeWidth=2;fontSize=12;fontColor=#191919;" vertex="1" parent="1">
+          <mxGeometry x="390" y="36" width="560" height="299" as="geometry" />
+        </mxCell>
+        <mxCell id="h0" value="&lt;p style=&quot;margin:0;text-align:center;background:#E8EEF8;padding:4px 0&quot;&gt;&lt;b style=&quot;font-size:14px;color:#1F3864;&quot;&gt;Jaguar&lt;/b&gt;&lt;/p&gt;&lt;hr size='1'/&gt;ESPECIE = &quot;jaguar&quot;&lt;br/&gt;EN_PELIGRO = True&lt;br/&gt;territorio_km2&lt;br/&gt;&lt;hr size='1'/&gt;es_territorio_amplio()&lt;br/&gt;describir()  &quot;implementa&quot;&lt;br/&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=2;fillColor=#FFFFFF;strokeColor=#1F3864;strokeWidth=2;fontSize=12;fontColor=#191919;" vertex="1" parent="1">
+          <mxGeometry x="34" y="435" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=0;endSize=12;strokeColor=#191919;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="h0" target="animal">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="154" y="391" />
+              <mxPoint x="670" y="391" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h1" value="&lt;p style=&quot;margin:0;text-align:center;background:#E8EEF8;padding:4px 0&quot;&gt;&lt;b style=&quot;font-size:14px;color:#1F3864;&quot;&gt;Tapir&lt;/b&gt;&lt;/p&gt;&lt;hr size='1'/&gt;ESPECIE = &quot;tapir&quot;&lt;br/&gt;EN_PELIGRO = True&lt;br/&gt;HORARIOS&lt;br/&gt;horario_actividad&lt;br/&gt;&lt;hr size='1'/&gt;esta_activo_a_la_hora(hora)&lt;br/&gt;describir()  &quot;implementa&quot;&lt;br/&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=2;fillColor=#FFFFFF;strokeColor=#1F3864;strokeWidth=2;fontSize=12;fontColor=#191919;" vertex="1" parent="1">
+          <mxGeometry x="292" y="435" width="240" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=0;endSize=12;strokeColor=#191919;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="h1" target="animal">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="412" y="391" />
+              <mxPoint x="670" y="391" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h2" value="&lt;p style=&quot;margin:0;text-align:center;background:#E8EEF8;padding:4px 0&quot;&gt;&lt;b style=&quot;font-size:14px;color:#1F3864;&quot;&gt;GuacamayaRoja&lt;/b&gt;&lt;/p&gt;&lt;hr size='1'/&gt;ESPECIE = &quot;guacamaya roja&quot;&lt;br/&gt;EN_PELIGRO = True&lt;br/&gt;pichones_en_nido&lt;br/&gt;&lt;hr size='1'/&gt;tiene_nidada_activa()&lt;br/&gt;describir()  &quot;implementa&quot;&lt;br/&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=2;fillColor=#FFFFFF;strokeColor=#1F3864;strokeWidth=2;fontSize=12;fontColor=#191919;" vertex="1" parent="1">
+          <mxGeometry x="550" y="435" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=0;endSize=12;strokeColor=#191919;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="h2" target="animal">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="670" y="391" />
+              <mxPoint x="670" y="391" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h3" value="&lt;p style=&quot;margin:0;text-align:center;background:#E8EEF8;padding:4px 0&quot;&gt;&lt;b style=&quot;font-size:14px;color:#1F3864;&quot;&gt;CocodriloDePantano&lt;/b&gt;&lt;/p&gt;&lt;hr size='1'/&gt;ESPECIE = &quot;cocodrilo de pantano&quot;&lt;br/&gt;EN_PELIGRO = False&lt;br/&gt;largo_m&lt;br/&gt;&lt;hr size='1'/&gt;es_adulto()&lt;br/&gt;describir()  &quot;implementa&quot;&lt;br/&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=2;fillColor=#FFFFFF;strokeColor=#1F3864;strokeWidth=2;fontSize=12;fontColor=#191919;" vertex="1" parent="1">
+          <mxGeometry x="808" y="435" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=0;endSize=12;strokeColor=#191919;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="h3" target="animal">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="928" y="391" />
+              <mxPoint x="670" y="391" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h4" value="&lt;p style=&quot;margin:0;text-align:center;background:#E8EEF8;padding:4px 0&quot;&gt;&lt;b style=&quot;font-size:14px;color:#1F3864;&quot;&gt;PavoOcelado&lt;/b&gt;&lt;/p&gt;&lt;hr size='1'/&gt;ESPECIE = &quot;pavo ocelado&quot;&lt;br/&gt;EN_PELIGRO = True&lt;br/&gt;MESES&lt;br/&gt;mes_apareamiento&lt;br/&gt;&lt;hr size='1'/&gt;esta_en_epoca_reproductiva(mes)&lt;br/&gt;describir()  &quot;implementa&quot;&lt;br/&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=2;fillColor=#FFFFFF;strokeColor=#1F3864;strokeWidth=2;fontSize=12;fontColor=#191919;" vertex="1" parent="1">
+          <mxGeometry x="1066" y="435" width="240" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=0;endSize=12;strokeColor=#191919;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="h4" target="animal">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1186" y="391" />
+              <mxPoint x="670" y="391" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="monitoreo" name="SistemaMonitoreo — Entrega 4">
+    <mxGraphModel dx="1260" dy="680" grid="1" gridSize="10" guides="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1220" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sistema" value="&lt;p style=&quot;margin:0;padding:8px 0;text-align:center;background:#E8EEF8;font-weight:bold;color:#1F3864;font-size:17px&quot;&gt;SistemaMonitoreo&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:5px 0&quot;/&gt;+ animales: list[Animal]&lt;br/&gt;+ alertas: list[Alerta]&lt;br/&gt;+ zonas, collares, guardarrecursos: list&lt;br/&gt;+ lecturas, cambios_bateria: list&lt;br/&gt;+ servicio_sms: ServicioSMS&lt;br/&gt;+ codigo_guardarrecursos_de_turno: str&lt;br/&gt;− _animales_ordenados: bool&lt;hr size=&quot;1&quot; style=&quot;margin:5px 0&quot;/&gt;&lt;b style=&quot;color:#1557A0&quot;&gt;+ ordenar_alertas()&lt;/b&gt;&lt;br/&gt;&lt;b style=&quot;color:#1557A0&quot;&gt;+ buscar_animal(codigo): Animal o None&lt;/b&gt;&lt;br/&gt;− _ordenar_por_seleccion(elementos, clave) {static}&lt;br/&gt;+ buscar_collar(codigo)&lt;br/&gt;+ buscar_zona(nombre)&lt;br/&gt;+ buscar_guardarrecursos(codigo)&lt;br/&gt;+ listar_alertas_pendientes()&lt;br/&gt;+ hora_ultima_lectura(codigo_animal)&lt;br/&gt;+ registrar_animal(animal)&lt;br/&gt;+ asignar_collar(codigo_collar, codigo_animal)&lt;br/&gt;+ reportar_posicion(codigo_collar, nombre_zona, hora)&lt;br/&gt;+ registrar_avistamiento(codigo_gr, codigo_animal, nombre_zona, hora)&lt;br/&gt;+ atender_alerta(posicion, codigo_gr)&lt;br/&gt;+ consultar_movimientos(codigo_animal)&lt;br/&gt;+ registrar_cambio_bateria(codigo_collar, codigo_gr, nivel_nuevo, hora)" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;fillColor=#FFFFFF;strokeColor=#1F3864;strokeWidth=1.5;fontSize=15;fontColor=#253247;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="305" y="49" width="570" height="520" />
+        </mxCell>
+        <mxCell id="animal2" value="&lt;p style=&quot;margin:0;padding:8px 0;text-align:center;background:#E8EEF8;font-weight:bold;color:#1F3864;font-size:17px&quot;&gt;Animal&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:5px 0&quot;/&gt;codigo · nombre · collar" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;fillColor=#FFFFFF;strokeColor=#1F3864;strokeWidth=1.5;fontSize=15;fontColor=#253247;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="20" y="74" width="240" height="70" />
+        </mxCell>
+        <mxCell id="edge_animal2" value="0..*" edge="1" parent="1" source="sistema" target="animal2" style="edgeStyle=none;endArrow=none;html=1;strokeColor=#8A9AB1;strokeWidth=1.5;fontSize=12;fontColor=#253247;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.11538462;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="alerta" value="&lt;p style=&quot;margin:0;padding:8px 0;text-align:center;background:#E8EEF8;font-weight:bold;color:#1F3864;font-size:17px&quot;&gt;Alerta&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:5px 0&quot;/&gt;prioridad · hora · atendida" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;fillColor=#FFFFFF;strokeColor=#1F3864;strokeWidth=1.5;fontSize=15;fontColor=#253247;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="20" y="198" width="240" height="70" />
+        </mxCell>
+        <mxCell id="edge_alerta" value="0..*" edge="1" parent="1" source="sistema" target="alerta" style="edgeStyle=none;endArrow=none;html=1;strokeColor=#8A9AB1;strokeWidth=1.5;fontSize=12;fontColor=#253247;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.35384615;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="collar" value="&lt;p style=&quot;margin:0;padding:8px 0;text-align:center;background:#E8EEF8;font-weight:bold;color:#1F3864;font-size:17px&quot;&gt;Collar&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:5px 0&quot;/&gt;codigo · bateria · animal" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;fillColor=#FFFFFF;strokeColor=#1F3864;strokeWidth=1.5;fontSize=15;fontColor=#253247;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="20" y="322" width="240" height="70" />
+        </mxCell>
+        <mxCell id="edge_collar" value="0..*" edge="1" parent="1" source="sistema" target="collar" style="edgeStyle=none;endArrow=none;html=1;strokeColor=#8A9AB1;strokeWidth=1.5;fontSize=12;fontColor=#253247;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.59230769;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="zona" value="&lt;p style=&quot;margin:0;padding:8px 0;text-align:center;background:#E8EEF8;font-weight:bold;color:#1F3864;font-size:17px&quot;&gt;Zona&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:5px 0&quot;/&gt;nombre · tipo" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;fillColor=#FFFFFF;strokeColor=#1F3864;strokeWidth=1.5;fontSize=15;fontColor=#253247;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="20" y="446" width="240" height="70" />
+        </mxCell>
+        <mxCell id="edge_zona" value="0..*" edge="1" parent="1" source="sistema" target="zona" style="edgeStyle=none;endArrow=none;html=1;strokeColor=#8A9AB1;strokeWidth=1.5;fontSize=12;fontColor=#253247;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.83076923;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="guardarrecursos" value="&lt;p style=&quot;margin:0;padding:8px 0;text-align:center;background:#E8EEF8;font-weight:bold;color:#1F3864;font-size:17px&quot;&gt;Guardarrecursos&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:5px 0&quot;/&gt;codigo · nombre" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;fillColor=#FFFFFF;strokeColor=#1F3864;strokeWidth=1.5;fontSize=15;fontColor=#253247;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="920" y="74" width="240" height="70" />
+        </mxCell>
+        <mxCell id="edge_guardarrecursos" value="0..*" edge="1" parent="1" source="sistema" target="guardarrecursos" style="edgeStyle=none;endArrow=none;html=1;strokeColor=#8A9AB1;strokeWidth=1.5;fontSize=12;fontColor=#253247;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.11538462;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="lectura" value="&lt;p style=&quot;margin:0;padding:8px 0;text-align:center;background:#E8EEF8;font-weight:bold;color:#1F3864;font-size:17px&quot;&gt;Lectura&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:5px 0&quot;/&gt;codigo_animal · zona · hora" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;fillColor=#FFFFFF;strokeColor=#1F3864;strokeWidth=1.5;fontSize=15;fontColor=#253247;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="920" y="198" width="240" height="70" />
+        </mxCell>
+        <mxCell id="edge_lectura" value="0..*" edge="1" parent="1" source="sistema" target="lectura" style="edgeStyle=none;endArrow=none;html=1;strokeColor=#8A9AB1;strokeWidth=1.5;fontSize=12;fontColor=#253247;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.35384615;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="cambio" value="&lt;p style=&quot;margin:0;padding:8px 0;text-align:center;background:#E8EEF8;font-weight:bold;color:#1F3864;font-size:17px&quot;&gt;CambioBateria&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:5px 0&quot;/&gt;codigo_collar · nivel_nuevo" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;fillColor=#FFFFFF;strokeColor=#1F3864;strokeWidth=1.5;fontSize=15;fontColor=#253247;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="920" y="322" width="240" height="70" />
+        </mxCell>
+        <mxCell id="edge_cambio" value="0..*" edge="1" parent="1" source="sistema" target="cambio" style="edgeStyle=none;endArrow=none;html=1;strokeColor=#8A9AB1;strokeWidth=1.5;fontSize=12;fontColor=#253247;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.59230769;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="sms" value="&lt;p style=&quot;margin:0;padding:8px 0;text-align:center;background:#E8EEF8;font-weight:bold;color:#1F3864;font-size:17px&quot;&gt;ServicioSMS&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;margin:5px 0&quot;/&gt;mensajes_enviados" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;fillColor=#FFFFFF;strokeColor=#1F3864;strokeWidth=1.5;fontSize=15;fontColor=#253247;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="920" y="446" width="240" height="70" />
+        </mxCell>
+        <mxCell id="edge_sms" value="1" edge="1" parent="1" source="sistema" target="sms" style="edgeStyle=none;endArrow=none;html=1;strokeColor=#8A9AB1;strokeWidth=1.5;fontSize=12;fontColor=#253247;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.83076923;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="leyenda" value="Los dos métodos de la Entrega 4 están resaltados en azul." style="text;html=1;align=left;verticalAlign=middle;fontColor=#1557A0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="305" y="580" width="570" height="28" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
