@@ -32,7 +32,7 @@ Las zonas de primer nivel se guardan en sistema.zonas. Cada subzona se agrega
 solo a su padre. La demostración ubica una vez a cada animal.
 Las ubicaciones de esta demostración son explícitas mediante ubicar.
 
-[Diagrama editable](docs/Guardianes_clases_e5.drawio)
+[Diagrama editable](docs/Guardianes_clases_e5.png)
 
 ## Evidencia
 
