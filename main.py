@@ -1,11 +1,11 @@
 """
-Guardianes del Peten - Entrega 4 (ordenar y buscar)
+Guardianes del Peten - Entrega 5 (recursividad)
 Sistema de monitoreo de fauna de la Reserva de la Biosfera Maya
 
 Nombre completo: Julio Cesar Carias Vargas
 Carne: 202604158
 Grupo: IS24-FP2
-Fecha: 8 de noviembre de 2026
+Fecha: 15 de noviembre de 2026
 
 Se ordenan cinco alertas y se buscan tres codigos de animal. Tambien se
 ejecutan los siete casos de uso y la demostracion de polimorfismo de la
@@ -280,3 +280,33 @@ print("\n  Especies registradas (la clase del objeto ES la especie):")
 for animal in sistema.animales:
     print(f"    [{type(animal).__name__}] {animal.codigo} {animal.nombre}")
 print()
+
+
+# Entrega 5: las listas de primer nivel contienen solo las raices.
+titulo("ENTREGA 5  ZONAS DENTRO DE ZONAS")
+laguna = sistema.buscar_sector("Laguna del Tigre")
+sector_norte = Zona("Sector Norte", "nucleo")
+sector_sur = Zona("Sector Sur", "nucleo")
+aguada = Zona("Aguada El Ceibo", "nucleo")
+laguna.agregar_subzona(sector_norte)
+laguna.agregar_subzona(sector_sur)
+sector_norte.agregar_subzona(aguada)
+
+laguna.ubicar(balam)
+sector_norte.ubicar(tziquin)
+aguada.ubicar(kanil)
+sector_sur.ubicar(ixchel)
+sistema.buscar_sector("Carmelita").ubicar(kukul)
+
+print("Mapa completo de la reserva:")
+for zona in sistema.zonas:
+    zona.mostrar()
+
+print(f"Animales en toda la reserva: {sistema.contar_animales()}")
+print(f"Animales en Laguna del Tigre: {laguna.contar_animales()}")
+
+for nombre in ("Aguada El Ceibo", "Laguna del Tigre", "Sector Inexistente"):
+    print(f"Buscar {nombre} -> {sistema.buscar_sector(nombre)}")
+
+paso("R5: rechazar una subzona de tipo invalido")
+laguna.agregar_subzona(Zona("Zona invalida", "urbana"))

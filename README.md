@@ -1,47 +1,42 @@
-# Guardianes del Petén · Entrega 4
+# Guardianes del Petén · Entrega 5
 
-- **Estudiante** Julio César Carías Vargas
-- **Carné** 202604158
-- **Grupo** IS24-FP2
-- **Curso** Fundamentos de Programación 2
-- **Fecha** 8 de noviembre de 2026
+- Estudiante Julio César Carías Vargas
+- Carné 202604158
+- Grupo IS24-FP2
+- Fecha 15 de noviembre de 2026
 
-Sistema de monitoreo de fauna de la Reserva de la Biosfera Maya. Esta entrega agrega el ordenamiento de alertas y la búsqueda binaria de animales a los siete casos de uso de las entregas anteriores.
+Ejecutar `py main.py` en Windows o `python3 main.py`.
 
-## Ejecución
+## Cambios
 
-Se necesita Python 3. Desde la carpeta que contiene `main.py`, ejecutar:
+`zona.py` incorpora subzonas, animales, agregar_subzona y ubicar. mostrar,
+contar_animales y buscar_sector recorren el árbol mediante recursión.
+La inserción de subzonas valida su tipo con la guarda R5 antes de agregarlas.
 
-```bash
-python3 main.py
-```
+`sistema_monitoreo.py` cuenta desde las raíces y busca sectores recursivamente.
+buscar_zona delega en esa búsqueda para aceptar posiciones y avistamientos
+en subzonas registradas.
 
-En Windows también se puede usar `py main.py`.
+`main.py` conserva las pruebas anteriores y agrega un mapa de ocho zonas,
+con tres niveles bajo la reserva. Ubica cinco animales en distintos niveles.
 
-## Ordenamiento y búsqueda
+Resultados esperados de la Entrega 5
+- Reserva completa, 5 animales.
+- Laguna del Tigre, 4 animales.
+- Aguada El Ceibo, encontrado en el nivel más profundo.
+- Laguna del Tigre, encontrado en primer nivel.
+- Sector Inexistente, None.
+- Zona de tipo urbana, rechazada por R5.
 
-- `ordenar_alertas()` ordena la lista de alertas en su lugar. En cada pasada selecciona la menor clave `(nivel, hora)` y hace como máximo un intercambio. El nivel 1 corresponde a la prioridad alta y el 2 a la media. Las horas ISO `AAAA-MM-DD HH:MM` se comparan cronológicamente como texto.
-- `buscar_animal(codigo)` prepara la lista por código con la misma selección. La primera búsqueda y la que sigue a un registro nuevo ordenan la lista. Con la lista ordenada, la búsqueda compara el elemento del medio y descarta la mitad que queda fuera del rango. Devuelve el objeto de la especie o `None` si el código no existe.
+Las zonas de primer nivel se guardan en sistema.zonas. Cada subzona se agrega
+solo a su padre. La demostración ubica una vez a cada animal.
+Las ubicaciones de esta demostración son explícitas mediante ubicar.
 
-## Resultados de main
+[Diagrama editable](docs/Guardianes_clases_e5.drawio)
 
-El programa imprime cinco alertas antes y después de ordenarlas. Las dos altas quedan a las **09:05** y **18:30**, seguidas de las tres medias a las **07:15**, **12:20** y **18:45**.
+## Evidencia
 
-| Código | Caso | Resultado |
-| --- | --- | --- |
-| `COC-022` | Primero por código | Ixchel, cocodrilo de pantano |
-| `TAP-014` | Último por código | Tziquin, tapir |
-| `ZZZ-999` | Código inexistente | `None` |
+Ejecutar main.py y guardar la captura de las pruebas de Entrega 5 en
+`docs/ejecucion_main_entrega5.png`.
 
-El programa también ejecuta la demostración de polimorfismo y los casos de registro, asignación de collar, reporte, avistamiento, atención de alertas, consulta de movimientos y cambio de batería.
-
-## Diagrama y evidencia
-
-[Diagrama de clases editable](docs/Guardianes_clases_e4.drawio) con la jerarquía de especies y la clase central actualizada.
-
-![Diagrama UML de SistemaMonitoreo](docs/diagrama_sistema_monitoreo.png)
-
-Fragmento de la ejecución de `main.py` con las dos pruebas de esta entrega.
-
-![Salida de main.py con cinco alertas antes y después del ordenamiento y las tres búsquedas](docs/ejecucion_main_entrega4.png)
-# guardianes-del-peten
+![Pruebas de recursividad](docs/ejecucion_main_entrega5.png)

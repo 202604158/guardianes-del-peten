@@ -80,11 +80,21 @@ class SistemaMonitoreo:
         return None
 
     def buscar_zona(self, nombre):
-        # Articulo 5: una zona solo cuenta si esta registrada aqui.
+        # Las subzonas incorporadas al arbol tambien estan registradas.
+        return self.buscar_sector(nombre)
+
+    def buscar_sector(self, nombre):
         for zona in self.zonas:
-            if zona.nombre == nombre:
-                return zona
+            encontrado = zona.buscar_sector(nombre)
+            if encontrado is not None:
+                return encontrado
         return None
+
+    def contar_animales(self):
+        total = 0
+        for zona in self.zonas:
+            total += zona.contar_animales()
+        return total
 
     def buscar_guardarrecursos(self, codigo):
         for persona in self.guardarrecursos:
