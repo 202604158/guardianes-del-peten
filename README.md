@@ -3,7 +3,7 @@
 - Estudiante Julio César Carías Vargas
 - Carné 202604158
 - Grupo IS24-FP2
-- Fecha 23 de noviembre de 2026
+- Fecha 22 de noviembre de 2026
 
 Ejecutar `py main.py` en Windows o `python3 main.py`.
 
@@ -48,7 +48,6 @@ antes que la alta de 08:05, según el orden de llegada.
 
 ![Diagrama de clases de la Entrega 6](docs/diagrama_clases_e6.png)
 
-[Diagrama editable con el sistema y la jerarquía de especies](docs/Guardianes_clases_e6.drawio)
 
 ## Evidencia
 
