@@ -3,6 +3,8 @@ expone un metodo por cada caso de uso del expediente."""
 
 from alerta import Alerta
 from animal import Animal
+from bitacora_patrulla import BitacoraPatrulla
+from cola_alertas import ColaAlertas
 from cambio_bateria import CambioBateria
 from collar import Collar
 from guardarrecursos import Guardarrecursos
@@ -19,6 +21,8 @@ class SistemaMonitoreo:
         self.guardarrecursos = []
         self.lecturas = []
         self.alertas = []
+        self.cola_alertas = ColaAlertas()
+        self.bitacora = BitacoraPatrulla()
         self.cambios_bateria = []
         self._animales_ordenados = False
         # Actor secundario y destinatario de las alertas del articulo 6.
@@ -215,8 +219,9 @@ class SistemaMonitoreo:
 
         # Rombo 1: la bateria es de 10 % o mas (articulo 3).
         if not collar.puede_reportar():
-            self.alertas.append(
-                Alerta("bateria baja", "media", animal.codigo, hora))
+            alerta = Alerta("bateria baja", "media", animal.codigo, hora)
+            self.alertas.append(alerta)
+            self.cola_alertas.encolar(alerta)
             print(f"    RECHAZADA - bateria {collar.bateria}% < 10% "
                   f"(articulo 3). Alerta 'bateria baja' creada, prioridad media")
             return False
@@ -243,8 +248,9 @@ class SistemaMonitoreo:
 
         # Rombo 3: animal en peligro y zona de uso multiple (articulo 6).
         if animal.esta_en_peligro() and zona.es_uso_multiple():
-            self.alertas.append(
-                Alerta("acercamiento a comunidad", "alta", animal.codigo, hora))
+            alerta = Alerta("acercamiento a comunidad", "alta", animal.codigo, hora)
+            self.alertas.append(alerta)
+            self.cola_alertas.encolar(alerta)
             print(f"      ALERTA ALTA - {animal.nombre} ({animal.codigo}) "
                   f"en {zona.nombre} (articulo 6)")
             self.servicio_sms.enviar(
@@ -314,6 +320,36 @@ class SistemaMonitoreo:
         print(f"    OK - alerta '{alerta.tipo}' de {alerta.codigo_animal} "
               f"atendida por {codigo_gr}")
         return True
+
+    def atender_siguiente_alerta(self, codigo_guardarrecursos):
+        # El metodo anterior permite atender por indice. Descartar de la
+        # cola las que ya atendio ese camino conserva R8 (una sola vez).
+        while not self.cola_alertas.esta_vacia():
+            alerta = self.cola_alertas.siguiente()
+            if alerta.esta_pendiente():
+                break
+            self.cola_alertas.atender()
+
+        if self.cola_alertas.esta_vacia():
+            print("No hay alertas por atender")
+            return None
+
+        # Validar antes de sacar una alerta pendiente.
+        if not Guardarrecursos.codigo_valido(codigo_guardarrecursos):
+            print("RECHAZADO - codigo de guardarrecursos invalido (R7)")
+            return None
+        if self.buscar_guardarrecursos(codigo_guardarrecursos) is None:
+            print("RECHAZADO - guardarrecursos no registrado (R7)")
+            return None
+
+        posicion = self.alertas.index(alerta)
+        if not self.atender_alerta(posicion, codigo_guardarrecursos):
+            return None
+        self.cola_alertas.atender()
+        self.bitacora.registrar(
+            f"{codigo_guardarrecursos} atendio {alerta.tipo} de "
+            f"{alerta.codigo_animal} ({alerta.hora})")
+        return alerta
 
     # ------------------------------------------------------------------
     # Caso de uso 6 - Consultar movimientos (Anexo F)

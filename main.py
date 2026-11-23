@@ -1,11 +1,11 @@
 """
-Guardianes del Peten - Entrega 5 (recursividad)
+Guardianes del Peten - Entrega 6 (colas y pilas)
 Sistema de monitoreo de fauna de la Reserva de la Biosfera Maya
 
 Nombre completo: Julio Cesar Carias Vargas
 Carne: 202604158
 Grupo: IS24-FP2
-Fecha: 15 de noviembre de 2026
+Fecha: 23 de noviembre de 2026
 
 Se ordenan cinco alertas y se buscan tres codigos de animal. Tambien se
 ejecutan los siete casos de uso y la demostracion de polimorfismo de la
@@ -310,3 +310,49 @@ for nombre in ("Aguada El Ceibo", "Laguna del Tigre", "Sector Inexistente"):
 
 paso("R5: rechazar una subzona de tipo invalido")
 laguna.agregar_subzona(Zona("Zona invalida", "urbana"))
+
+
+# Entrega 6: reserva de prueba independiente para ver cuatro llegadas
+# sin mezclar las alertas que se atendieron en los casos de uso anteriores.
+titulo("ENTREGA 6  COLA DE ALERTAS Y BITACORA")
+patrulla = SistemaMonitoreo(ServicioSMS(), "GR-07")
+patrulla.guardarrecursos.append(Guardarrecursos("GR-07", "Mateo Chayax"))
+patrulla.zonas.append(Zona("Uaxactun", "uso multiple"))
+patrulla.registrar_animal(Jaguar("JAG-006", "Balam de prueba", 65))
+patrulla.registrar_animal(Tapir("TAP-006", "Tziquin de prueba", "nocturno"))
+patrulla.collares.append(Collar("COL-61", 8))
+patrulla.collares.append(Collar("COL-62", 85))
+patrulla.asignar_collar("COL-61", "TAP-006")
+patrulla.asignar_collar("COL-62", "JAG-006")
+
+paso("Cuatro alertas generadas por el sistema, en este orden")
+patrulla.reportar_posicion("COL-61", "Uaxactun", "2026-11-22 08:00")
+patrulla.reportar_posicion("COL-62", "Uaxactun", "2026-11-22 08:05")
+patrulla.reportar_posicion("COL-61", "Uaxactun", "2026-11-22 08:10")
+patrulla.reportar_posicion("COL-62", "Uaxactun", "2026-11-22 08:15")
+print(f"Alertas en cola: {patrulla.cola_alertas.tamanio()}")
+print(f"Siguiente sin sacar: {patrulla.cola_alertas.siguiente()}")
+
+paso("Atender dos en orden de llegada (FIFO)")
+for numero in range(1, 3):
+    atendida = patrulla.atender_siguiente_alerta("GR-07")
+    print(f"Salida {numero}: {atendida}")
+print(f"Quedan en cola: {patrulla.cola_alertas.tamanio()}")
+
+paso("Cuatro anotaciones mas y deshacer la ultima (LIFO)")
+patrulla.bitacora.registrar("Revise la aguada Los Patos")
+patrulla.bitacora.registrar("Recorri el Sector Norte")
+patrulla.bitacora.registrar("Comprobe la bateria del collar")
+patrulla.bitacora.registrar("Anotacion equivocada del Sector Sur")
+print(f"Ultima sin sacar: {patrulla.bitacora.ultima()}")
+print(f"Se deshizo: {patrulla.bitacora.deshacer()}")
+print("Bitacora de la mas reciente a la mas antigua:")
+patrulla.bitacora.mostrar()
+
+paso("Atender hasta vaciar la cola")
+while not patrulla.cola_alertas.esta_vacia():
+    print(f"Sale: {patrulla.atender_siguiente_alerta('GR-07')}")
+print(f"Cola vacia: {patrulla.cola_alertas.esta_vacia()}")
+print(f"Cantidad final: {patrulla.cola_alertas.tamanio()}")
+print(f"Siguiente en cola vacia: {patrulla.cola_alertas.siguiente()}")
+patrulla.atender_siguiente_alerta("GR-07")
